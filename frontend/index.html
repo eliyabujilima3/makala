@@ -32,7 +32,7 @@ body{
     color:var(--dark);
 }
 
-/* ===== NAV ===== */
+/* NAV */
 .navbar{
     position:fixed;
     width:100%;
@@ -79,7 +79,7 @@ nav a:hover{
     text-decoration:none;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
     min-height:100vh;
     display:flex;
@@ -124,7 +124,7 @@ nav a:hover{
     margin-bottom:20px;
 }
 
-/* ===== BUTTONS ===== */
+/* BUTTONS */
 .primary-btn,.secondary-btn{
     display:inline-block;
     padding:14px 22px;
@@ -145,7 +145,7 @@ nav a:hover{
     color:var(--dark);
 }
 
-/* ===== IMAGE ===== */
+/* IMAGE */
 .image-box{
     width:420px;
     height:600px;
@@ -160,7 +160,7 @@ nav a:hover{
     object-fit:cover;
 }
 
-/* ===== ABOUT ===== */
+/* ABOUT */
 .about{
     padding:120px 0;
 }
@@ -192,7 +192,7 @@ nav a:hover{
     border:1px solid var(--border);
 }
 
-/* ===== PROJECTS ===== */
+/* PROJECTS */
 .projects{
     padding:100px 0;
 }
@@ -249,7 +249,6 @@ nav a:hover{
     font-size:14px;
     opacity:0.9;
     margin-bottom:10px;
-    line-height:1.5;
 }
 
 .live-btn{
@@ -261,7 +260,7 @@ nav a:hover{
     text-decoration:none;
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT FIXED */
 .contact-wrapper{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -290,9 +289,27 @@ nav a:hover{
     padding:14px;
     border:1px solid var(--border);
     border-radius:12px;
+    outline:none;
 }
 
-/* ===== RESPONSIVE ===== */
+/* 🔥 FIX BUTTON */
+.contact-form button{
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
 @media(max-width:900px){
     .hero-container,
     .about-grid,
@@ -355,7 +372,7 @@ nav a:hover{
 
 <div class="profile-card">
 <h2>About Me</h2>
-<p>I am a Data Scientist and Software Developer building intelligent AI systems and scalable applications.</p>
+<p>Data Scientist & Developer focused on AI systems and real-world applications.</p>
 
 <div class="about-cards">
 <div class="card"><i class="fas fa-brain"></i> AI & ML</div>
@@ -365,9 +382,7 @@ nav a:hover{
 
 <div class="profile-card">
 <h2>Vision</h2>
-<p>
-To become a leading AI engineer solving African challenges using data-driven innovation, machine learning, and scalable software systems.
-</p>
+<p>To build intelligent systems that solve African challenges using AI, ML, and data-driven innovation.</p>
 </div>
 
 </div>
@@ -388,7 +403,7 @@ To become a leading AI engineer solving African challenges using data-driven inn
 
 <div class="caption-box">
 <h3>Dream Walker Consultancy</h3>
-<p>Website with payment integration and business system.</p>
+<p>Website with payment integration system.</p>
 <a class="live-btn" href="https://dreamwalker.co.tz/" target="_blank">View Live</a>
 </div>
 </div>
@@ -398,7 +413,7 @@ To become a leading AI engineer solving African challenges using data-driven inn
 
 <div class="caption-box">
 <h3>Zindi ML Competitions</h3>
-<p>Real-world machine learning competitions and models.</p>
+<p>Machine learning competitions and portfolio work.</p>
 <a class="live-btn" href="https://zindi.africa/users/Aelyson/competitions/portfolio" target="_blank">View Zindi</a>
 </div>
 </div>
@@ -409,7 +424,7 @@ To become a leading AI engineer solving African challenges using data-driven inn
 </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT FIXED -->
 <section id="contact">
 <div class="container contact-wrapper">
 
@@ -420,10 +435,10 @@ To become a leading AI engineer solving African challenges using data-driven inn
 </div>
 
 <form class="contact-form">
-<input placeholder="Name">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button>Send</button>
+<input type="text" placeholder="Name" required>
+<input type="email" placeholder="Email" required>
+<textarea placeholder="Message" required></textarea>
+<button type="submit">Send Message</button>
 </form>
 
 </div>
