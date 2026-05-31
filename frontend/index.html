@@ -1,1156 +1,1030 @@
-<!-- =========================================
-ADVANCED PORTFOLIO FOR GRACE RUGE
-FEATURES:
-✔ Advanced Modern UI
-✔ Image Slider / Carousel
-✔ Project Gallery
-✔ Auto Sliding Images
-✔ Manual Controls
-✔ Responsive Design
-✔ Smooth Animation
-✔ Floating Effects
-✔ Passport Image Space
-✔ Statistics Counter
-✔ Animated Scroll Effects
-========================================= -->
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Grace Ruge | Creative Portfolio</title>
-
-<!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- FONT AWESOME -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-<style>
-
-:root{
-    --primary:#7c3aed;
-    --secondary:#5b21b6;
-    --dark:#0f172a;
-    --light:#f8fafc;
-    --gray:#64748b;
-    --white:#ffffff;
-    --border:#e2e8f0;
-    --shadow:0 15px 45px rgba(0,0,0,0.08);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:var(--light);
-    color:var(--dark);
-    overflow-x:hidden;
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:var(--primary);
-    border-radius:20px;
-}
-
-/* GLOBAL */
-
-.container{
-    width:100%;
-    max-width:1300px;
-    margin:auto;
-    padding:0 5%;
-}
-
-section{
-    padding:110px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:70px;
-}
-
-.section-title h2{
-    font-size:50px;
-    font-weight:900;
-}
-
-.section-title p{
-    margin-top:15px;
-    color:var(--gray);
-}
-
-/* NAVBAR */
-
-.navbar{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    z-index:999;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,0.75);
-    border-bottom:1px solid rgba(255,255,255,0.2);
-}
-
-.nav-container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 5%;
-}
-
-.logo{
-    font-size:34px;
-    font-weight:900;
-}
-
-.logo span{
-    color:var(--primary);
-}
-
-nav{
-    display:flex;
-    gap:35px;
-}
-
-nav a{
-    text-decoration:none;
-    color:var(--dark);
-    font-weight:600;
-    transition:0.3s;
-    position:relative;
-}
-
-nav a::after{
-    content:"";
-    position:absolute;
-    width:0;
-    height:2px;
-    background:var(--primary);
-    left:0;
-    bottom:-5px;
-    transition:0.3s;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
-nav a:hover{
-    color:var(--primary);
-}
-
-.nav-btn{
-    padding:14px 24px;
-    border:none;
-    border-radius:14px;
-    background:linear-gradient(to right,var(--primary),var(--secondary));
-    color:white;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.nav-btn:hover{
-    transform:translateY(-3px);
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    background:rgba(124,58,237,0.12);
-    border-radius:50%;
-    top:-250px;
-    right:-200px;
-    filter:blur(40px);
-}
-
-.hero-container{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:70px;
-}
-
-.hero-text{
-    flex:1;
-    z-index:2;
-}
-
-.badge{
-    display:inline-block;
-    padding:12px 20px;
-    border-radius:40px;
-    background:#ede9fe;
-    color:var(--primary);
-    font-weight:600;
-    margin-bottom:25px;
-}
-
-.hero-text h1{
-    font-size:85px;
-    line-height:1;
-    margin-bottom:25px;
-    font-weight:900;
-}
-
-.hero-text h1 span{
-    color:var(--primary);
-}
-
-.hero-text p{
-    font-size:18px;
-    line-height:1.9;
-    color:var(--gray);
-    max-width:650px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:20px;
-    margin-top:40px;
-    flex-wrap:wrap;
-}
-
-.primary-btn,
-.secondary-btn{
-    padding:16px 32px;
-    border-radius:14px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.primary-btn{
-    border:none;
-    color:white;
-    background:linear-gradient(to right,var(--primary),var(--secondary));
-}
-
-.secondary-btn{
-    background:white;
-    border:1px solid var(--border);
-}
-
-.primary-btn:hover,
-.secondary-btn:hover{
-    transform:translateY(-5px);
-}
-
-.hero-stats{
-    display:flex;
-    gap:40px;
-    margin-top:50px;
-    flex-wrap:wrap;
-}
-
-.hero-stats h3{
-    font-size:35px;
-    color:var(--primary);
-}
-
-.hero-image{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    position:relative;
-}
-
-.image-box{
-    width:420px;
-    height:650px;
-    border-radius:35px;
-    overflow:hidden;
-    box-shadow:0 30px 60px rgba(0,0,0,0.15);
-    position:relative;
-}
-
-/* ===== PASSPORT IMAGE SPACE ===== */
-
-.image-box img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-/*
-REPLACE IMAGE BELOW WITH GRACE PASSPORT PHOTO
-
-Example:
-src="images/grace.jpg"
-*/
-
-.floating-card{
-    position:absolute;
-    background:white;
-    padding:18px 22px;
-    border-radius:18px;
-    box-shadow:var(--shadow);
-    animation:float 4s ease-in-out infinite;
-    z-index:5;
-}
-
-.card-one{
-    top:70px;
-    left:20px;
-}
-
-.card-two{
-    bottom:50px;
-    right:20px;
-}
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-12px);
-    }
-}
-
-/* ABOUT */
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.about-image img{
-    width:100%;
-    border-radius:30px;
-    box-shadow:var(--shadow);
-}
-
-.about-content h2{
-    font-size:50px;
-    margin-bottom:20px;
-}
-
-.about-content p{
-    color:var(--gray);
-    line-height:1.9;
-    margin-bottom:25px;
-}
-
-.about-cards{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.about-card{
-    background:white;
-    padding:25px;
-    border-radius:24px;
-    box-shadow:var(--shadow);
-    transition:0.3s;
-}
-
-.about-card:hover{
-    transform:translateY(-10px);
-}
-
-.about-card i{
-    font-size:30px;
-    color:var(--primary);
-    margin-bottom:15px;
-}
-
-/* SKILLS */
-
-.skills-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.skill-card{
-    background:white;
-    padding:30px;
-    border-radius:25px;
-    box-shadow:var(--shadow);
-}
-
-.skill-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:15px;
-}
-
-.skill-bar{
-    width:100%;
-    height:30px;
-    background:#eee;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.skill-progress{
-    height:100%;
-    background:linear-gradient(to right,var(--primary),var(--secondary));
-}
-
-/* PROJECT SLIDER */
-
-.slider-container{
-    position:relative;
-    overflow:hidden;
-    border-radius:30px;
-}
-
-.slider{
-    display:flex;
-    transition:transform 0.5s ease;
-}
-
-.slide{
-    min-width:100%;
-    position:relative;
-}
-
-.slide img{
-    width:100%;
-    height:800px;
-    object-fit:cover;
-}
-
-.slide-content{
-    position:absolute;
-    bottom:50px;
-    left:50px;
-    background:rgba(15,23,42,0.75);
-    color:white;
-    padding:30px;
-    border-radius:25px;
-    max-width:500px;
-    backdrop-filter:blur(10px);
-}
-
-.slide-content h3{
-    font-size:35px;
-    margin-bottom:15px;
-}
-
-.slide-buttons{
-    margin-top:20px;
-    display:flex;
-    gap:15px;
-}
-
-.slide-buttons a{
-    text-decoration:none;
-    padding:12px 20px;
-    border-radius:12px;
-    font-weight:600;
-}
-
-.demo-btn{
-    background:var(--primary);
-    color:white;
-}
-
-.code-btn{
-    background:white;
-    color:var(--dark);
-}
-
-/* SLIDER CONTROLS */
-
-.slider-controls{
-    position:absolute;
-    width:100%;
-    top:50%;
-    transform:translateY(-50%);
-    display:flex;
-    justify-content:space-between;
-    padding:0 20px;
-}
-
-.slider-btn{
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    background:white;
-    box-shadow:var(--shadow);
-    cursor:pointer;
-    font-size:20px;
-}
-
-/* GALLERY */
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
-    gap:30px;
-}
-
-.gallery-item{
-    overflow:hidden;
-    border-radius:25px;
-    position:relative;
-    cursor:pointer;
-}
-
-.gallery-item img{
-    width:100%;
-    height:480px;
-    object-fit:cover;
-    transition:0.5s;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.1);
-}
-
-.gallery-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.5);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:0;
-    transition:0.4s;
-    color:white;
-    font-size:25px;
-}
-
-.gallery-item:hover .gallery-overlay{
-    opacity:1;
-}
-
-/* CONTACT */
-
-.contact-wrapper{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    background:white;
-    border-radius:35px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-}
-
-.contact-left{
-    padding:60px;
-    background:linear-gradient(to bottom right,var(--primary),var(--secondary));
-    color:white;
-}
-
-.contact-left h2{
-    font-size:45px;
-    margin-bottom:20px;
-}
-
-.contact-info{
-    margin-top:40px;
-}
-
-.contact-info div{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.contact-form{
-    padding:60px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
-
-.contact-form input,
-.contact-form textarea{
-    padding:18px;
-    border-radius:16px;
-    border:1px solid var(--border);
-    outline:none;
-}
-
-.contact-form textarea{
-    height:160px;
-    resize:none;
-}
-
-.contact-form button{
-    padding:18px;
-    border:none;
-    border-radius:16px;
-    background:linear-gradient(to right,var(--primary),var(--secondary));
-    color:white;
-    font-weight:600;
-    cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-    padding:40px;
-    text-align:center;
-    color:var(--gray);
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1100px){
-
-    .hero-container,
-    .about-grid,
-    .contact-wrapper{
-        grid-template-columns:1fr;
-        display:grid;
-    }
-
-    .hero{
-        padding-top:150px;
-    }
-
-    .hero-text h1{
-        font-size:60px;
-    }
-
-}
-
-@media(max-width:768px){
-
-    nav{
-        display:none;
-    }
-
-    .hero-text h1{
-        font-size:48px;
-    }
-
-    .slide img{
-        height:450px;
-    }
-
-    .slide-content{
-        left:20px;
-        right:20px;
-        bottom:20px;
-    }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-
-<header class="navbar">
-
-    <div class="nav-container">
-
-        <div class="logo">
-            Grace<span>.</span>
-        </div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <button class="nav-btn">
-            Download CV
-        </button>
-
-    </div>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="container hero-container">
-
-        <div class="hero-text">
-
-            <div class="badge">
-                ✨ <Main>Data Scientist</Main> 
-            </div>
-
-            <h1>
-                Grace <span>Ruge</span>
-            </h1>
-
-            <p>
-               <h2>Data Scientist</h2>
-               I am a passionate Data Science student with a strong interest in data analysis,
-                machine learning, and real-world problem solving using data-driven approaches..
-            </p>
-
-            <div class="hero-buttons">
-
-                <button class="primary-btn">
-                    View Projects
-                </button>
-
-                <button class="secondary-btn">
-                    Contact Me
-                </button>
-
-            </div>
-
-            <div class="hero-stats">
-
-                <div>
-                    <h3>50+</h3>
-                    <p>Completed Projects</p>
-                </div>
-
-                <div>
-                    <h3>3+</h3>
-                    <p>Years Experience</p>
-                </div>
-
-                <div>
-                    <h3>100%</h3>
-                    <p>Machine Learning Expertise</p>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="hero-image">
-
-            <div class="floating-card card-one">
-                🎨 Data scientist 
-            </div>
-
-           
-
-            <div class="image-box">
-
-                <!-- PASSPORT IMAGE SPACE -->
-
-                <img
-                src="assets/images/to be used.png"
-                alt="Grace Ruge">
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-    <div class="container about-grid">
-
-        <div class="about-image">
-
-            <img
-            src="assets/images/2.png"
-            alt="About">
-
-        </div>
-
-        <div class="about-content">
-
-            <h2>About Grace</h2>
-
-            <p>
-                I am currently studying Data Science at the Eastern Africa Statistical Training Center (EASTC), with a strong foundation in data analysis, statistical modeling, data visualization, and machine learning. I enjoy working with structured and unstructured data to solve real-world problems and support informed decision-making.
-            </p>
-
-            <p>
-                I enjoy transforming raw data into meaningful insights that drive innovation and strategic thinking. Currently, I am expanding my expertise in Python, R, SQL, and modern data science tools, with a strong interest in analytics and artificial intelligence.
-            </p>
-
-            <div class="about-cards">
-
-                <div class="about-card">
-                    <i class="fas fa-palette"></i>
-                    <h3>Machine Learning</h3>
-                    <p>Data Mining</p>
-                </div>
-
-                <div class="about-card">
-                    <i class="fas fa-camera"></i>
-                    <h3>Business Intelligence</h3>
-                    <p>Data analysis and visualization</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROJECT SLIDER -->
-
-<section id="projects">
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Featured Projects</h2>
-            <p>Interactive project showcase slider</p>
-        </div>
-
-        <div class="slider-container">
-
-            <div class="slider" id="slider">
-
-                <!-- SLIDE 1 -->
-
-                <div class="slide">
-
-                    <img src="assets/images/2.png">
-
-                    <div class="slide-content">
-
-                        <h3>Brand Identity Project</h3>
-
-                        <p>
-                            fully machine learning skills and data analysis expertise.
-                        </p>
-
-                        <div class="slide-buttons">
-                            <a href="#" class="demo-btn">View</a>
-                            <a href="#" class="code-btn">Details</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- SLIDE 2 -->
-
-                <div class="slide">
-
-                    <img src="assets/images/3.png">
-
-                    <div class="slide-content">
-
-                        <h3>AI development and Integration </h3>
-
-                        <p>
-                            Advanced visualization techniques for data analysis.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <!-- SLIDE 3 -->
-
-                <div class="slide">
-
-                    <img src="assets/images/4.png">
-
-                    <div class="slide-content">
-
-                        <h3>Advanced data preprocessing for machine learning</h3>
-
-                        <p>
-                            Data preprocessing techniques for machine learning are main focus for developing effective models.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CONTROLS -->
-
-            <div class="slider-controls">
-
-                <button class="slider-btn" id="prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <button class="slider-btn" id="next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- GALLERY -->
-
-<section id="gallery">
-
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Project Gallery</h2>
-            <p>Add unlimited project images here</p>
-        </div>
-
-        <div class="gallery-grid">
-
-            <div class="gallery-item">
-                <img src="assets/images/1.png">
-                <div class="gallery-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="assets/images/2.png">
-                <div class="gallery-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="assets/images/3.png">
-                <div class="gallery-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="assets/images/4.png">
-                <div class="gallery-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="assets/images/5.png">
-                <div class="gallery-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="assets/images/6.png">
-                <div class="gallery-overlay">
-                    <i class="fas fa-expand"></i>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-    <div class="container">
-
-        <div class="contact-wrapper">
-
-            <div class="contact-left">
-
-                <h2>Let's Work Together</h2>
-
-                <p>
-                    Available for creative projects, branding,
-                    digital campaigns and collaborations.
-                </p>
-
-                <div class="contact-info">
-
-                    <div>
-                        <i class="fas fa-envelope"></i>
-                        <span>graceruge5@gmail.com</span>
-                    </div>
-
-                    <div>
-                        <i class="fas fa-phone"></i>
-                        <span>+255 616 306 966</span>
-                    </div>
-
-                    <div>
-                        <i class="fas fa-location-dot"></i>
-                        <span>Dar es Salaam, Tanzania</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <form class="contact-form">
-
-                <input type="text" placeholder="Your Name">
-
-                <input type="email" placeholder="Your Email">
-
-                <input type="text" placeholder="Subject">
-
-                <textarea placeholder="Your Message"></textarea>
-
-                <button type="submit">
-                    Send Message
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-    © 2026 Grace Ruge • Creative Portfolio
-</footer>
-
-<script>
-
-/* =========================
-ADVANCED IMAGE SLIDER
-========================= */
-
-const slider = document.getElementById("slider");
-
-const slides = document.querySelectorAll(".slide");
-
-const nextBtn = document.getElementById("next");
-
-const prevBtn = document.getElementById("prev");
-
-let currentSlide = 0;
-
-/* SHOW SLIDE */
-
-function showSlide(index){
-
-    if(index >= slides.length){
-        currentSlide = 0;
-    }
-
-    else if(index < 0){
-        currentSlide = slides.length - 1;
-    }
-
-    else{
-        currentSlide = index;
-    }
-
-    slider.style.transform =
-    `translateX(-${currentSlide * 100}%)`;
-
-}
-
-/* NEXT BUTTON */
-
-nextBtn.addEventListener("click", () => {
-    showSlide(currentSlide + 1);
-});
-
-/* PREVIOUS BUTTON */
-
-prevBtn.addEventListener("click", () => {
-    showSlide(currentSlide - 1);
-});
-
-/* AUTO SLIDE */
-
-setInterval(() => {
-    showSlide(currentSlide + 1);
-}, 5000);
-
-/* SCROLL REVEAL */
-
-const revealElements = document.querySelectorAll(
-".about-card, .gallery-item, .skill-card"
-);
-
-window.addEventListener("scroll", () => {
-
-    revealElements.forEach(el => {
-
-        const top = el.getBoundingClientRect().top;
-
-        if(top < window.innerHeight - 100){
-
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meshaki Makala | Data Scientist & Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1d4ed8;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
         }
 
-    });
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-});
+        html {
+            scroll-behavior: smooth;
+        }
 
-revealElements.forEach(el => {
+        body {
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
 
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "0.7s ease";
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-});
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 20px;
+        }
 
-/* CONTACT FORM */
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+            padding: 0 5%;
+        }
 
-document.querySelector(".contact-form")
-.addEventListener("submit", function(e){
+        section {
+            padding: 110px 0;
+        }
 
-    e.preventDefault();
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
 
-    alert("Message Sent Successfully 🚀");
+        .section-title h2 {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
 
-});
+        .section-title p {
+            margin-top: 16px;
+            color: var(--gray);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
 
-console.log("Grace Ruge Portfolio Loaded Successfully");
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.85);
+        }
 
-</script>
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+        }
 
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -4px;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 120px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 680px;
+            height: 680px;
+            background: rgba(37, 99, 235, 0.12);
+            border-radius: 50%;
+            top: -220px;
+            right: -180px;
+            filter: blur(36px);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 70px;
+        }
+
+        .hero-text {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 40px;
+            background: #eff6ff;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-text h1 {
+            font-size: 82px;
+            line-height: 0.95;
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: var(--gray);
+            max-width: 680px;
+            margin-bottom: 34px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 45px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .primary-btn {
+            border: none;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .secondary-btn {
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--dark);
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 34px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats div {
+            min-width: 180px;
+        }
+
+        .hero-stats h3 {
+            font-size: 38px;
+            color: var(--primary);
+        }
+
+        .hero-stats p {
+            margin-top: 10px;
+            color: var(--gray);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .image-box {
+            width: 420px;
+            height: 650px;
+            border-radius: 35px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.14);
+            position: relative;
+            background: linear-gradient(180deg, rgba(37, 99, 235, 0.06), rgba(255, 255, 255, 0.7));
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            animation: float 4s ease-in-out infinite;
+            z-index: 5;
+            min-width: 190px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        .card-one {
+            top: 60px;
+            left: 10px;
+        }
+
+        .card-two {
+            bottom: 60px;
+            right: 10px;
+            animation-delay: 1.3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-visual {
+            display: grid;
+            gap: 24px;
+            padding: 28px;
+            border-radius: 30px;
+            background: linear-gradient(180deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.06));
+            box-shadow: var(--shadow);
+        }
+
+        .about-visual h3 {
+            font-size: 26px;
+            margin-bottom: 16px;
+        }
+
+        .about-visual p {
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .about-visual-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .about-visual-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: white;
+            border-radius: 22px;
+            padding: 18px;
+            box-shadow: 0 18px 45px rgba(37, 99, 235, 0.08);
+        }
+
+        .about-visual-item i {
+            font-size: 22px;
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .about-visual-item div {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .about-content h2 {
+            font-size: 46px;
+            margin-bottom: 18px;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 22px;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card i {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .about-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .skill-top h3 {
+            font-size: 20px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 16px;
+            background: #eef2ff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 820px;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 45px;
+            left: 45px;
+            background: rgba(15, 23, 42, 0.78);
+            color: white;
+            padding: 34px;
+            border-radius: 24px;
+            max-width: 520px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .slide-content h3 {
+            font-size: 34px;
+            margin-bottom: 18px;
+        }
+
+        .slide-content p {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.88);
+            max-width: 500px;
+        }
+
+        .slide-buttons {
+            margin-top: 24px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .slide-buttons a {
+            text-decoration: none;
+            padding: 14px 22px;
+            border-radius: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .demo-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .code-btn {
+            background: white;
+            color: var(--dark);
+        }
+
+        .slider-controls {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .slider-btn {
+            width: 55px;
+            height: 55px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            color: white;
+            font-size: 26px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 35px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-left {
+            padding: 60px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .contact-left h2 {
+            font-size: 44px;
+            margin-bottom: 22px;
+        }
+
+        .contact-left p {
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.9;
+            max-width: 440px;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            outline: none;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 170px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 18px;
+            border: none;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-3px);
+        }
+
+        footer {
+            padding: 40px 0 20px;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        @media (max-width: 1100px) {
+            .hero-container,
+            .about-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                display: grid;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .hero-text h1 {
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .nav-container {
+                justify-content: space-between;
+            }
+
+            .hero-text h1 {
+                font-size: 46px;
+            }
+
+            .slide img {
+                height: 450px;
+            }
+
+            .slide-content {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .hero-image {
+                margin-top: 40px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 100px;
+            }
+
+            .contact-wrapper {
+                border-radius: 24px;
+            }
+
+            .contact-left,
+            .contact-form {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">Meshaki<span>.</span></div>
+            <nav>
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#contact" class="nav-btn">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <div class="badge">📌 Data Scientist • Machine Learning • Software Developer</div>
+                    <h1>Meshaki <span>Makala</span></h1>
+                    <p>I am a passionate Data Scientist and Software Developer specializing in Machine Learning, Data Analysis, Artificial Intelligence, and modern software solutions. I enjoy transforming complex data into meaningful insights and building innovative systems that solve real-world challenges.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="primary-btn">View Projects</a>
+                        <a href="#contact" class="secondary-btn">Send a Message</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div>
+                            <h3>20+</h3>
+                            <p>Data Science Projects</p>
+                        </div>
+                        <div>
+                            <h3>10+</h3>
+                            <p>Machine Learning Models</p>
+                        </div>
+                        <div>
+                            <h3>5+</h3>
+                            <p>Software Systems Developed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="floating-card card-one">📊 Data Scientist</div>
+                    <div class="floating-card card-two">🤖 Machine Learning Engineer</div>
+                    <div class="image-box">
+                        <img src="assets/images/mishaely.png" alt="Meshaki Makala Portrait">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-grid">
+                <div class="about-image">
+                    <div class="about-visual">
+                        <h3>Professional Focus</h3>
+                        <p>Building scalable data science and software systems with modern machine learning, data engineering, and cloud-enabled solutions.</p>
+                        <div class="about-visual-list">
+                            <div class="about-visual-item">
+                                <i class="fas fa-chart-line"></i>
+                                <div>Advanced analytics, predictive modeling, and performance-driven data science solutions.</div>
+                            </div>
+                            <div class="about-visual-item">
+                                <i class="fas fa-robot"></i>
+                                <div>Machine learning pipelines, model deployment, and automation for intelligent decision-making.</div>
+                            </div>
+                            <div class="about-visual-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <div>Full-stack software development, integrations, and technology platforms for business transformation.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2>About Meshaki</h2>
+                    <p>I am a Data Scientist, Machine Learning enthusiast, and Software Developer with experience in data analytics, predictive modeling, artificial intelligence, and web development.</p>
+                    <p>I enjoy creating intelligent solutions that combine data science and software engineering to solve real-world business and organizational problems.</p>
+                    <div class="about-cards">
+                        <div class="about-card">
+                            <i class="fas fa-brain"></i>
+                            <h3>Data Science</h3>
+                            <p>Model development, analysis, and AI research.</p>
+                        </div>
+                        <div class="about-card">
+                            <i class="fas fa-code"></i>
+                            <h3>Software Development</h3>
+                            <p>Modern applications, systems, and automation workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Core Skills</h2>
+                    <p>Technical strengths and expertise across data science, machine learning, and software development.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-top">
+                            <h3>Machine Learning</h3>
+                            <span>Expert</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-top">
+                            <h3>Data Analysis</h3>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-top">
+                            <h3>Software Development</h3>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-top">
+                            <h3>Artificial Intelligence</h3>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured Projects</h2>
+                    <p>Selected work demonstrating machine learning, analytics, and software development.</p>
+                </div>
+                <div class="slider-container">
+                    <div class="slider" id="slider">
+                        <article class="slide">
+                            <img src="assets/images/challenge1.png" alt="Zindi Data Science Challenge">
+                            <div class="slide-content">
+                                <h3>Zindi Data Science Challenge</h3>
+                                <p>Applied machine learning and analytical techniques to solve real-world data science problems through competitive challenges.</p>
+                                <div class="slide-buttons">
+                                    <a href="https://zindi.africa/users/Aelyson/competitions/portfolio" target="_blank" rel="noreferrer" class="demo-btn">View Portfolio</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="slide">
+                            <img src="assets/images/challenge2.png" alt="Machine Learning Certificate">
+                            <div class="slide-content">
+                                <h3>Machine Learning Certificate</h3>
+                                <p>Professional certification demonstrating practical machine learning skills and predictive analytics expertise.</p>
+                            </div>
+                        </article>
+                        <article class="slide">
+                            <img src="assets/images/mishaely.png" alt="Dream Walker Consultancy Platform">
+                            <div class="slide-content">
+                                <h3>Dream Walker Consultancy Platform</h3>
+                                <p>A professional consultancy and technology platform designed and developed to support digital transformation, innovation, and business growth.</p>
+                                <div class="slide-buttons">
+                                    <a href="https://dreamwalker.co.tz/about.html" target="_blank" rel="noreferrer" class="code-btn">Visit Website</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn" id="next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+    
+        <section id="gallery">
+            <div class="container">
+                
+                
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-left">
+                        <h2>Let's Work Together</h2>
+                        <p>Available for data science, machine learning, AI, and software development collaborations across business and technology.</p>
+                        <div class="contact-info">
+                            <div><i class="fas fa-envelope"></i><span><a href="mailto:meshakimakala54@gmail.com" style="color:inherit; text-decoration:none;">meshakimakala54@gmail.com</a></span></div>
+                            <div><i class="fas fa-phone"></i><span>0757447399</span></div>
+                            <div><i class="fas fa-location-dot"></i><span>Dar es Salaam, Tanzania</span></div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Meshaki Makala | Data Scientist • Machine Learning Engineer • Software Developer
+    </footer>
+
+    <script>
+        const backendUrl = window.BACKEND_URL || '';
+        const apiUrl = backendUrl ? `${backendUrl}/api/message` : '/api/message';
+        const slider = document.getElementById('slider');
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.getElementById('next');
+        const prevBtn = document.getElementById('prev');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        setInterval(() => showSlide(currentSlide + 1), 5000);
+
+        const revealElements = document.querySelectorAll('.about-card, .gallery-item, .skill-card');
+        window.addEventListener('scroll', () => {
+            revealElements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = '0.7s ease';
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const payload = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (response.ok) {
+                    alert('Message Sent Successfully 🚀');
+                    this.reset();
+                } else {
+                    const error = await response.json();
+                    alert('Error: ' + (error.error || 'Unable to send message.'));
+                }
+            } catch (error) {
+                alert('Network error: ' + error.message);
+            }
+        });
+    </script>
 </body>
 </html>
