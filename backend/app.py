@@ -1,10 +1,11 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-# Portfolio data
+# ---------------- PORTFOLIO DATA ----------------
 portfolio = {
     "skills": [
         "Graphic Design",
@@ -46,20 +47,20 @@ portfolio = {
     ]
 }
 
-# ✅ Home route (fixes "Not Found")
+# ---------------- ROOT ROUTE (IMPORTANT FOR RENDER) ----------------
 @app.route("/")
 def home():
     return jsonify({
         "status": "success",
-        "message": "Portfolio API is running"
+        "message": "Portfolio API is running 🚀"
     })
 
-# ✅ Portfolio API route
-@app.route("/api/portfolio")
+# ---------------- API ROUTE ----------------
+@app.route("/api/portfolio", methods=["GET"])
 def get_portfolio():
     return jsonify(portfolio)
 
-
-# Run locally
+# ---------------- RUN (LOCAL + RENDER SAFE) ----------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
