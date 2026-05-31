@@ -121,7 +121,7 @@ nav a:hover{
     font-weight:600;
 }
 
-/* ABOUT */
+/* ABOUT (NEW PROFESSIONAL STYLE) */
 .about{
     padding:100px 0;
 }
@@ -133,12 +133,12 @@ nav a:hover{
     margin-bottom:40px;
 }
 
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
+.about-container{
     max-width:1100px;
     margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
 .card{
@@ -157,6 +157,23 @@ nav a:hover{
 .card p{
     color:var(--gray);
     line-height:1.8;
+}
+
+/* SKILLS BOX */
+.skills{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    padding:8px 12px;
+    background:rgba(37,99,235,0.1);
+    border-radius:999px;
+    font-size:13px;
+    color:var(--primary);
+    font-weight:600;
 }
 
 /* PROJECTS */
@@ -252,15 +269,10 @@ nav a:hover{
     cursor:pointer;
 }
 
-#statusMsg{
-    font-size:14px;
-    font-weight:600;
-}
-
 /* RESPONSIVE */
 @media(max-width:900px){
     .hero-container,
-    .about-grid,
+    .about-container,
     .contact-wrapper{
         grid-template-columns:1fr;
     }
@@ -307,26 +319,40 @@ nav a:hover{
 </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT (UPDATED WITHOUT IMAGE) -->
 <section id="about" class="about">
 
 <h2 class="section-title">About Me & Vision</h2>
 
-<div class="about-grid">
+<div class="about-container">
 
 <div class="card">
 <h2>About Me</h2>
 <p>
-I am a Data Scientist and Software Developer passionate about building intelligent systems using Machine Learning, Artificial Intelligence, and modern web technologies.  
-I enjoy turning raw data into meaningful insights and creating solutions that solve real-world problems.
+I am a passionate Data Scientist and Software Developer who specializes in building intelligent systems using Machine Learning, Artificial Intelligence, and modern web technologies. I enjoy transforming raw data into meaningful insights and building real-world solutions that solve problems in business, education, and society.
 </p>
+
+<div class="skills">
+<span class="skill">Python</span>
+<span class="skill">Machine Learning</span>
+<span class="skill">AI Systems</span>
+<span class="skill">Web Development</span>
+<span class="skill">Data Analysis</span>
+</div>
 </div>
 
 <div class="card">
 <h2>Vision</h2>
 <p>
-My vision is to become a leading AI Engineer in Africa and globally, building scalable, intelligent systems that empower businesses, improve decision-making, and solve real-life challenges using data-driven innovation.
+My vision is to become a leading AI Engineer in Africa and globally by developing scalable, intelligent systems that empower organizations, improve decision-making, and solve real-world challenges using data-driven innovation.
 </p>
+
+<div class="skills">
+<span class="skill">Problem Solving</span>
+<span class="skill">Innovation</span>
+<span class="skill">Leadership</span>
+<span class="skill">Research</span>
+</div>
 </div>
 
 </div>
@@ -351,7 +377,7 @@ My vision is to become a leading AI Engineer in Africa and globally, building sc
 <div class="slide">
 <img src="assets/images/challenge1.png">
 <div class="caption-box">
-<h3>Zindi Machine Learning Projects</h3>
+<h3>Zindi Machine Learning Portfolio</h3>
 <a class="live-btn" href="https://zindi.africa/users/Aelyson/competitions/portfolio" target="_blank">View Portfolio</a>
 </div>
 </div>
@@ -363,7 +389,6 @@ My vision is to become a leading AI Engineer in Africa and globally, building sc
 
 <!-- CONTACT -->
 <section id="contact">
-
 <div class="contact-wrapper">
 
 <div class="contact-left">
@@ -381,12 +406,9 @@ My vision is to become a leading AI Engineer in Africa and globally, building sc
 
 <button type="submit">Send Message</button>
 
-<p id="statusMsg"></p>
-
 </form>
 
 </div>
-
 </section>
 
 <script>
@@ -404,44 +426,6 @@ function move(step){
 }
 
 setInterval(()=>move(1),4000);
-
-/* CONTACT */
-document.getElementById("contactForm").addEventListener("submit", async function(e){
-    e.preventDefault();
-
-    const status = document.getElementById("statusMsg");
-    status.innerText = "Sending...";
-
-    const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-    };
-
-    try{
-        const res = await fetch("http://127.0.0.1:5000/api/message", {
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body: JSON.stringify(data)
-        });
-
-        const result = await res.json();
-
-        if(result.status === "success"){
-            status.style.color = "green";
-            status.innerText = "Message sent successfully!";
-            this.reset();
-        }else{
-            status.style.color = "red";
-            status.innerText = "Failed to send message";
-        }
-
-    }catch(err){
-        status.style.color = "red";
-        status.innerText = "Server not running or CORS error";
-    }
-});
 </script>
 
 </body>
