@@ -17,7 +17,7 @@
     --light:#f8fafc;
     --gray:#64748b;
     --border:#e2e8f0;
-    --shadow:0 18px 50px rgba(0,0,0,0.10);
+    --shadow:0 20px 60px rgba(0,0,0,0.12);
 }
 
 *{
@@ -28,12 +28,15 @@
 }
 
 body{
-    background:var(--light);
+    background:linear-gradient(180deg,#f8fafc, #eef2ff);
     color:var(--dark);
     overflow-x:hidden;
 }
 
-/* smoother scrollbar */
+/* smooth scroll */
+html{scroll-behavior:smooth}
+
+/* scrollbar */
 ::-webkit-scrollbar{width:8px;}
 ::-webkit-scrollbar-thumb{
     background:var(--primary);
@@ -42,40 +45,42 @@ body{
 
 /* container */
 .container{
-    width:100%;
     max-width:1300px;
     margin:auto;
     padding:0 5%;
 }
 
-section{padding:100px 0;}
+/* section spacing improved */
+section{
+    padding:120px 0;
+}
 
-/* SECTION TITLE */
+/* TITLE */
 .section-title{
     text-align:center;
-    margin-bottom:60px;
+    margin-bottom:70px;
 }
 .section-title h2{
-    font-size:44px;
+    font-size:46px;
     font-weight:900;
+    letter-spacing:-1px;
 }
 .section-title p{
     color:var(--gray);
     max-width:650px;
-    margin:auto;
-    margin-top:12px;
+    margin:12px auto 0;
     line-height:1.7;
 }
 
-/* NAVBAR */
+/* NAVBAR (GLASS EFFECT) */
 .navbar{
     position:fixed;
     top:0;
     width:100%;
-    background:rgba(255,255,255,0.75);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--border);
     z-index:999;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(226,232,240,0.7);
 }
 
 .nav-container{
@@ -86,14 +91,14 @@ section{padding:100px 0;}
 }
 
 .logo{
-    font-size:28px;
+    font-size:30px;
     font-weight:900;
 }
 .logo span{color:var(--primary);}
 
 nav{
     display:flex;
-    gap:25px;
+    gap:26px;
 }
 
 nav a{
@@ -101,29 +106,40 @@ nav a{
     color:var(--dark);
     font-weight:600;
     position:relative;
+    transition:0.3s;
 }
 
 nav a::after{
     content:'';
     position:absolute;
-    bottom:-4px;
     left:0;
+    bottom:-4px;
     width:0;
     height:2px;
     background:var(--primary);
     transition:0.3s;
 }
 
+nav a:hover{
+    color:var(--primary);
+}
 nav a:hover::after{
     width:100%;
 }
 
+/* button glow */
 .nav-btn{
     background:linear-gradient(135deg,var(--primary),var(--secondary));
     padding:12px 20px;
     color:white;
     border-radius:12px;
     text-decoration:none;
+    box-shadow:0 10px 25px rgba(37,99,235,0.25);
+    transition:0.3s;
+}
+.nav-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 35px rgba(37,99,235,0.35);
 }
 
 /* HERO */
@@ -136,13 +152,14 @@ nav a:hover::after{
 
 .hero-container{
     display:flex;
-    gap:60px;
+    gap:70px;
     align-items:center;
 }
 
 .hero-text h1{
-    font-size:72px;
+    font-size:76px;
     font-weight:900;
+    line-height:1.05;
 }
 
 .hero-text h1 span{
@@ -151,25 +168,28 @@ nav a:hover::after{
 
 .hero-text p{
     color:var(--gray);
-    line-height:1.8;
-    margin-top:15px;
+    margin-top:18px;
+    line-height:1.9;
+    font-size:17px;
 }
 
+/* badge */
 .badge{
-    background:#eaf1ff;
+    background:rgba(37,99,235,0.08);
     color:var(--primary);
     padding:10px 18px;
     border-radius:30px;
     display:inline-block;
-    margin-bottom:20px;
+    margin-bottom:18px;
+    font-weight:600;
 }
 
 /* BUTTONS */
 .primary-btn,.secondary-btn{
-    padding:14px 24px;
+    padding:14px 26px;
     border-radius:12px;
-    text-decoration:none;
     font-weight:600;
+    text-decoration:none;
     display:inline-block;
     transition:0.3s;
 }
@@ -177,38 +197,39 @@ nav a:hover::after{
 .primary-btn{
     background:linear-gradient(135deg,var(--primary),var(--secondary));
     color:white;
+    box-shadow:0 10px 25px rgba(37,99,235,0.25);
 }
+
 .secondary-btn{
     border:1px solid var(--border);
-    color:var(--dark);
     background:white;
+    color:var(--dark);
 }
 
 .primary-btn:hover,
 .secondary-btn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
-/* IMAGE FIX */
+/* IMAGE */
 .image-box{
-    width:420px;
-    height:600px;
+    width:430px;
+    height:620px;
     border-radius:30px;
     overflow:hidden;
     box-shadow:var(--shadow);
-    background:#fff;
+    background:white;
+    transition:0.4s;
+}
+
+.image-box:hover{
+    transform:translateY(-8px) scale(1.01);
 }
 
 .image-box img{
     width:100%;
     height:100%;
     object-fit:cover;
-}
-
-/* fallback image fix */
-.image-box img:not([src]),
-.image-box img[src=""]{
-    display:none;
 }
 
 /* ABOUT */
@@ -220,21 +241,23 @@ nav a:hover::after{
 
 .about-card{
     background:white;
-    padding:25px;
+    padding:30px;
     border-radius:20px;
     box-shadow:var(--shadow);
-    transition:0.3s;
+    transition:0.4s;
+    opacity:0;
+    transform:translateY(30px);
 }
 
 .about-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
 }
 
 /* SKILLS */
 .skills-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
+    gap:25px;
 }
 
 .skill-card{
@@ -242,19 +265,25 @@ nav a:hover::after{
     padding:25px;
     border-radius:20px;
     box-shadow:var(--shadow);
+    transition:0.4s;
+    opacity:0;
+    transform:translateY(30px);
 }
 
-/* SLIDER FIX */
+.skill-card:hover{
+    transform:translateY(-8px);
+}
+
+/* PROJECTS */
 .slider-container{
     overflow:hidden;
     border-radius:25px;
-    position:relative;
     box-shadow:var(--shadow);
 }
 
 .slider{
     display:flex;
-    transition:0.6s ease;
+    transition:0.7s ease;
 }
 
 .slide{
@@ -263,7 +292,7 @@ nav a:hover::after{
 
 .slide img{
     width:100%;
-    height:700px;
+    height:720px;
     object-fit:cover;
 }
 
@@ -279,12 +308,12 @@ nav a:hover::after{
 .contact-left{
     background:linear-gradient(135deg,var(--primary),var(--secondary));
     color:white;
-    padding:50px;
+    padding:60px;
 }
 
 .contact-form{
     background:white;
-    padding:50px;
+    padding:60px;
     display:flex;
     flex-direction:column;
     gap:15px;
@@ -293,8 +322,21 @@ nav a:hover::after{
 .contact-form input,
 .contact-form textarea{
     padding:14px;
-    border:1px solid var(--border);
     border-radius:12px;
+    border:1px solid var(--border);
+    outline:none;
+    transition:0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(37,99,235,0.1);
+}
+
+/* ANIMATION */
+.reveal{
+    transition:0.8s ease;
 }
 
 /* RESPONSIVE */
@@ -303,16 +345,12 @@ nav a:hover::after{
     .about-grid,
     .contact-wrapper{
         grid-template-columns:1fr;
-        flex-direction:column;
-        display:grid;
     }
+
+    nav{display:none;}
 
     .hero-text h1{
         font-size:48px;
-    }
-
-    nav{
-        display:none;
     }
 }
 </style>
@@ -324,14 +362,15 @@ nav a:hover::after{
 <header class="navbar">
 <div class="nav-container">
 <div class="logo">Meshaki<span>.</span></div>
+
 <nav>
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
 </nav>
+
 <a class="nav-btn" href="#contact">Contact</a>
 </div>
 </header>
@@ -341,13 +380,15 @@ nav a:hover::after{
 <div class="container hero-container">
 
 <div class="hero-text">
-<div class="badge">📌 Data Scientist • ML • Software Dev</div>
+<div class="badge">📌 Data Scientist • ML • AI • Software Dev</div>
 
 <h1>Meshaki <span>Makala</span></h1>
 
-<p>I am a Data Scientist and Software Developer specializing in ML, AI, and data-driven systems.</p>
+<p>
+I build intelligent systems using Machine Learning, Artificial Intelligence, and modern software engineering to solve real-world problems.
+</p>
 
-<div style="margin-top:20px;">
+<div style="margin-top:25px;">
 <a class="primary-btn" href="#projects">View Projects</a>
 <a class="secondary-btn" href="#contact">Contact</a>
 </div>
@@ -355,7 +396,7 @@ nav a:hover::after{
 
 <div class="image-box">
 <img src="assets/images/mishaely.png"
-onerror="this.src='https://via.placeholder.com/400x600?text=Image+Not+Found'">
+onerror="this.src='https://via.placeholder.com/400x600?text=Profile'">
 </div>
 
 </div>
@@ -365,14 +406,14 @@ onerror="this.src='https://via.placeholder.com/400x600?text=Image+Not+Found'">
 <section id="about">
 <div class="container about-grid">
 
-<div class="about-card">
-<h3>Data Science Focus</h3>
-<p>Machine learning, AI systems, and predictive modeling solutions.</p>
+<div class="about-card reveal">
+<h3>Data Science</h3>
+<p>Machine learning models, data analysis, and predictive systems.</p>
 </div>
 
-<div class="about-card">
+<div class="about-card reveal">
 <h3>Software Development</h3>
-<p>Web apps, APIs, automation systems, and scalable solutions.</p>
+<p>Web apps, APIs, automation systems, and scalable platforms.</p>
 </div>
 
 </div>
@@ -383,16 +424,14 @@ onerror="this.src='https://via.placeholder.com/400x600?text=Image+Not+Found'">
 <div class="container">
 <div class="section-title">
 <h2>Core Skills</h2>
-<p>Technical expertise across AI, ML, and software engineering.</p>
+<p>Advanced technical expertise in AI, ML, and software engineering.</p>
 </div>
 
 <div class="skills-grid">
-
-<div class="skill-card">Machine Learning</div>
-<div class="skill-card">Data Analysis</div>
-<div class="skill-card">AI Systems</div>
-<div class="skill-card">Software Engineering</div>
-
+<div class="skill-card reveal">Machine Learning</div>
+<div class="skill-card reveal">Data Analysis</div>
+<div class="skill-card reveal">AI Systems</div>
+<div class="skill-card reveal">Software Engineering</div>
 </div>
 </div>
 </section>
@@ -402,20 +441,18 @@ onerror="this.src='https://via.placeholder.com/400x600?text=Image+Not+Found'">
 <div class="container">
 <div class="section-title">
 <h2>Projects</h2>
-<p>Real-world data science and engineering work.</p>
+<p>Real-world solutions and AI systems.</p>
 </div>
 
 <div class="slider-container">
 <div class="slider" id="slider">
 
 <div class="slide">
-<img src="assets/images/challenge1.png"
-onerror="this.src='https://via.placeholder.com/1200x700'">
+<img src="assets/images/challenge1.png">
 </div>
 
 <div class="slide">
-<img src="assets/images/challenge2.png"
-onerror="this.src='https://via.placeholder.com/1200x700'">
+<img src="assets/images/challenge2.png">
 </div>
 
 </div>
@@ -429,24 +466,21 @@ onerror="this.src='https://via.placeholder.com/1200x700'">
 <div class="container contact-wrapper">
 
 <div class="contact-left">
-<h2>Contact Me</h2>
-<p>Let’s build AI, ML and software systems together.</p>
+<h2>Let’s Work Together</h2>
+<p>Open for AI, ML, and software development collaborations.</p>
 </div>
 
 <form class="contact-form">
 <input placeholder="Name">
 <input placeholder="Email">
 <textarea placeholder="Message"></textarea>
-<button style="background:var(--primary);color:white;border:none;padding:14px;border-radius:12px;">
-Send
-</button>
+<button class="primary-btn" type="submit">Send Message</button>
 </form>
 
 </div>
 </section>
 
 <script>
-// slider fix
 let index = 0;
 const slider = document.getElementById("slider");
 
@@ -454,6 +488,24 @@ setInterval(()=>{
     index = (index + 1) % 2;
     slider.style.transform = `translateX(-${index * 100}%)`;
 },4000);
+
+/* scroll reveal */
+const elements = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", ()=>{
+    elements.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 80){
+            el.style.opacity = 1;
+            el.style.transform = "translateY(0)";
+        }
+    });
+});
+
+elements.forEach(el=>{
+    el.style.opacity = 0;
+    el.style.transform = "translateY(30px)";
+});
 </script>
 
 </body>
