@@ -1,4 +1,1 @@
-Flask>=2.3,<3.0
-gunicorn>=22.0.0
-pymongo
-dnspython
+
