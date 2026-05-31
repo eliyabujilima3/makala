@@ -32,13 +32,6 @@ body{
     color:var(--dark);
 }
 
-/* ===== CONTAINER ===== */
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
 /* ===== NAV ===== */
 .navbar{
     position:fixed;
@@ -199,7 +192,7 @@ nav a:hover{
     border:1px solid var(--border);
 }
 
-/* ===== PROJECT SLIDER ===== */
+/* ===== PROJECTS ===== */
 .projects{
     padding:100px 0;
 }
@@ -212,14 +205,12 @@ nav a:hover{
 }
 
 .slider{
-    width:100%;
+    position:relative;
+    overflow:hidden;
     max-width:900px;
     margin:auto;
-    overflow:hidden;
     border-radius:25px;
     box-shadow:var(--shadow);
-    position:relative;
-    background:white;
 }
 
 .slides{
@@ -229,7 +220,7 @@ nav a:hover{
 
 .slide{
     min-width:100%;
-    height:450px;
+    height:480px;
     position:relative;
 }
 
@@ -239,37 +230,35 @@ nav a:hover{
     object-fit:cover;
 }
 
-.caption{
+.caption-box{
     position:absolute;
-    bottom:20px;
-    left:20px;
-    background:rgba(0,0,0,0.6);
+    bottom:0;
+    left:0;
+    right:0;
+    padding:25px;
+    background:linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.2), transparent);
     color:white;
-    padding:10px 15px;
+}
+
+.caption-box h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.caption-box p{
+    font-size:14px;
+    opacity:0.9;
+    margin-bottom:10px;
+    line-height:1.5;
+}
+
+.live-btn{
+    display:inline-block;
+    padding:10px 14px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
     border-radius:10px;
-}
-
-/* buttons */
-.slider-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:none;
-    cursor:pointer;
-    background:white;
-    font-size:18px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.15);
-}
-
-.prev{left:15px;}
-.next{right:15px;}
-
-.slider-btn:hover{
-    background:var(--primary);
-    color:white;
+    text-decoration:none;
 }
 
 /* ===== CONTACT ===== */
@@ -313,9 +302,7 @@ nav a:hover{
 
     nav{display:none;}
 
-    .hero-text h1{
-        font-size:42px;
-    }
+    .hero-text h1{font-size:42px;}
 }
 </style>
 </head>
@@ -347,9 +334,7 @@ nav a:hover{
 
 <h1>Meshaki <span>Makala</span></h1>
 
-<p>
-I build intelligent systems using Machine Learning and Software Engineering to solve real-world problems.
-</p>
+<p>I build intelligent systems using Machine Learning and Software Engineering.</p>
 
 <div style="margin-top:20px;">
 <a class="primary-btn" href="#projects">View Projects</a>
@@ -370,7 +355,7 @@ I build intelligent systems using Machine Learning and Software Engineering to s
 
 <div class="profile-card">
 <h2>About Me</h2>
-<p>Data Scientist & Developer focused on AI and intelligent systems.</p>
+<p>I am a Data Scientist and Software Developer building intelligent AI systems and scalable applications.</p>
 
 <div class="about-cards">
 <div class="card"><i class="fas fa-brain"></i> AI & ML</div>
@@ -380,13 +365,15 @@ I build intelligent systems using Machine Learning and Software Engineering to s
 
 <div class="profile-card">
 <h2>Vision</h2>
-<p>Building intelligent African tech solutions using data and AI.</p>
+<p>
+To become a leading AI engineer solving African challenges using data-driven innovation, machine learning, and scalable software systems.
+</p>
 </div>
 
 </div>
 </section>
 
-<!-- PROJECTS SLIDER -->
+<!-- PROJECTS -->
 <section class="projects" id="projects">
 <div class="container">
 
@@ -396,59 +383,30 @@ I build intelligent systems using Machine Learning and Software Engineering to s
 
 <div class="slides" id="slides">
 
-    <!-- SLIDE 1 (Dream Walker) -->
-    <div class="slide">
-        <img src="assets/images/data.jpg" alt="Dream Walker Project">
+<div class="slide">
+<img src="assets/images/data.jpg">
 
-        <div class="caption-box">
-            <h3>Dream Walker Consultancy Website</h3>
-
-            <p>
-                Developed a full business website for Dream Walker Consultancy with payment integration and client service system.
-            </p>
-
-            <a href="https://dreamwalker.co.tz/" target="_blank" class="live-btn">
-                🔗 View Live Project
-            </a>
-        </div>
-    </div>
-
-    <!-- SLIDE 2 -->
-    <div class="slide">
-        <img src="assets/images/challenge1.png" alt="Zindi Competition">
-
-        <div class="caption-box">
-            <h3>Zindi Machine Learning Competition</h3>
-
-            <p>
-                Built predictive ML models and participated in real-world data science challenges on Zindi platform.
-            </p>
-        </div>
-    </div>
-
-    <!-- SLIDE 3 -->
-    <div class="slide">
-        <img src="assets/images/challenge2.png" alt="ML Challenge">
-
-        <div class="caption-box">
-            <h3>Machine Learning Model Development</h3>
-
-            <p>
-                Developed and optimized machine learning models for classification and prediction tasks.
-            </p>
-        </div>
-    </div>
-
+<div class="caption-box">
+<h3>Dream Walker Consultancy</h3>
+<p>Website with payment integration and business system.</p>
+<a class="live-btn" href="https://dreamwalker.co.tz/" target="_blank">View Live</a>
+</div>
 </div>
 
-<!-- CONTROLS -->
-<button class="slider-btn prev" onclick="move(-1)">❮</button>
-<button class="slider-btn next" onclick="move(1)">❯</button>
+<div class="slide">
+<img src="assets/images/challenge1.png">
+
+<div class="caption-box">
+<h3>Zindi ML Competitions</h3>
+<p>Real-world machine learning competitions and models.</p>
+<a class="live-btn" href="https://zindi.africa/users/Aelyson/competitions/portfolio" target="_blank">View Zindi</a>
+</div>
+</div>
 
 </div>
 
 </div>
-</section>
+</div>
 </section>
 
 <!-- CONTACT -->
@@ -457,7 +415,8 @@ I build intelligent systems using Machine Learning and Software Engineering to s
 
 <div class="contact-left">
 <h2>Let’s Work Together</h2>
-<p>Send me your AI or software idea.</p>
+<p>Email: meshakimakala54@gmail.com</p>
+<p>Phone: 0757447399</p>
 </div>
 
 <form class="contact-form">
@@ -485,7 +444,6 @@ function move(step){
     slides.style.transform = `translateX(${-index * 100}%)`;
 }
 
-// auto slide
 setInterval(()=>move(1),4000);
 </script>
 
